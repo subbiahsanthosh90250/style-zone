@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="STYLE ZONE — Kid's & Men's Clothing Showcase & Store Profile. Located at Raak College Road, Villianur, Puducherry.">
+    <meta property="og:site_name" content="STYLE ZONE">
+    <meta property="og:title" content="STYLE ZONE — Kid's & Men's Clothing Showcase">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Premium Kid's & Men's Streetwear and Essentials in Villianur, Puducherry.">
+    <title>STYLE ZONE — Kid's &amp; Men's Clothing</title>
+
+    <!-- Google Fonts: Inter (400, 500, 600, 700, 900) matching CREWZT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body class="page-width-narrow card-hover-effect-none">
+    <a class="visually-hidden" href="#MainContent">Skip to content</a>
+
+    <div class="page-wrapper">
+      <!-- ==================== 1. ANNOUNCEMENT BAR ==================== -->
+      <aside class="announcement-bar" aria-label="Announcement">
+        <div class="page-container">
+          <p class="announcement-bar__text">
+            STYLE ZONE — KID'S &amp; MEN'S CLOTHING SHOWCASE &bull; VILLIANUR, PUDUCHERRY
+          </p>
+        </div>
+      </aside>
+
+      <!-- ==================== 2. STICKY HEADER ==================== -->
+      <header id="site-header" class="site-header">
+        <h1 class="visually-hidden">STYLE ZONE</h1>
+        <div class="page-container">
+          <div class="header__columns">
+            <!-- Left Column: Mobile Menu Button + Desktop Navigation -->
+            <div class="header__column--left">
+              <button
+                type="button"
+                class="header__menu-btn"
+                aria-label="Open menu"
+                id="mobile-menu-trigger"
+              >
+                <svg aria-hidden="true" width="16" height="16" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 3.5H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M1 10.5H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+
+              <nav class="header-nav" aria-label="Primary">
+                <a href="#showcase" class="header-nav__link">Showcase All</a>
+                <a href="#about-store" class="header-nav__link">About</a>
+                <a href="#contact-store" class="header-nav__link">Contact</a>
+              </nav>
+            </div>
+
+            <!-- Center Column: Brand Logo (CREWZT-inspired bold wordmark with red slash) -->
+            <div class="header__column--center">
+              <a href="#" class="header-logo" aria-label="STYLE ZONE - Home">
+                <span class="header-logo__text">STYLE ZONE</span>
+                <span class="header-logo__slash" aria-hidden="true"></span>
+              </a>
+            </div>
+
+            <!-- Right Column: Search, Store Profile, Saved Lookbook -->
+            <div class="header__column--right">
+              <button
+                type="button"
+                class="header-action-btn"
+                id="search-trigger"
+                aria-label="Search Showcase"
+                title="Search Showcase"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+                  <circle cx="9" cy="9" r="4.75" stroke="currentColor" stroke-width="1.5"/>
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12.5 12.5 3.25 3.25"/>
+                </svg>
+              </button>
+
+              <a
+                href="#contact-store"
+                class="header-action-btn"
+                aria-label="Store Profile & Location"
+                title="Store Profile & Location"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17" fill="none">
+                  <path stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="M10.375 3.813a3.063 3.063 0 1 1-6.125 0 3.063 3.063 0 0 1 6.125 0ZM7.313 9.5c-3.667 0-6.24 2.691-6.563 6.125h13.125C13.552 12.191 10.979 9.5 7.312 9.5Z"/>
+                </svg>
+              </a>
+
+              <button
+                type="button"
+                class="header-action-btn"
+                id="saved-drawer-trigger"
+                aria-label="Saved Lookbook"
+                title="Saved Lookbook Items"
+              >
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.392 6.875h13.216v8.016c0 .567-.224 1.112-.624 1.513-.4.402-.941.627-1.506.627H5.522a2.13 2.13 0 0 1-1.506-.627 2.15 2.15 0 0 1-.624-1.513zM8.818 2.969h2.333c.618 0 1.211.247 1.649.686a2.35 2.35 0 0 1 .683 1.658v1.562H6.486V5.313c0-.622.246-1.218.683-1.658a2.33 2.33 0 0 1 1.65-.686"/>
+                </svg>
+                <span id="saved-count-bubble" class="saved-bubble" hidden>0</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ==================== MAIN CONTENT ==================== -->
+      <main id="MainContent" role="main">
+        <!-- 3. HERO VIDEO BANNER (Exact CREWZT Hero Replica) -->
+        <section class="hero-section" aria-label="Featured Banner">
+          <div class="hero__media-wrapper">
+            <video
+              playsinline
+              autoplay
+              loop
+              muted
+              preload="metadata"
+              poster="assets/hero-poster.jpg"
+              class="hero__video"
+            >
+              <source src="assets/hero.mp4" type="video/mp4">
+            </video>
+            <div class="hero__overlay"></div>
+          </div>
+
+          <div class="hero__content-container">
+            <span class="hero__badge">Kid's &amp; Men's Clothing &bull; 4.9 &#9733; Rated Store</span>
+            <h2 class="hero__title">Premium Streetwear</h2>
+            <a href="#showcase" class="hero__button">Explore Collection</a>
+          </div>
+        </section>
+
+        <!-- 4. SHOWCASE COLLECTION GRID (Exact CREWZT 6 Items, Multi-Image Slideshow, NO COST/PRICE) -->
+        <section id="showcase" class="showcase-section page-container">
+          <div class="showcase-header">
+            <h3 class="showcase-header__title">Showcase</h3>
+            <div class="showcase-filters" role="tablist" aria-label="Filter collection by category">
+              <button type="button" class="filter-pill is-active" data-filter="all">All Looks</button>
+              <button type="button" class="filter-pill" data-filter="mens">Men's Collection</button>
+              <button type="button" class="filter-pill" data-filter="kids">Kid's &amp; Youth Fit</button>
+              <button type="button" class="filter-pill" data-filter="graphic">Graphic Series</button>
+            </div>
+          </div>
+
+          <div class="resource-list--grid" id="showcase-grid">
+            <!-- Card 1 -->
+            <article class="showcase-card" data-id="sz-1" data-category="mens kids">
+              <div class="card-gallery" data-slideshow>
+                <button type="button" class="wishlist-btn" data-wishlist-id="sz-1" aria-label="Bookmark look" aria-pressed="false">
+                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+
+                <div class="card-gallery__arrows">
+                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                </div>
+
+                <div class="card-gallery__slides" data-open-look="sz-1">
+                  <div class="card-gallery__slide is-active">
+                    <img src="assets/p1-1.png" alt="STYLE ZONE Classic Drop-Shoulder T-Shirt — White" class="card-gallery__image" loading="eager">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p1-2.png" alt="STYLE ZONE Classic Drop-Shoulder T-Shirt — White Back View" class="card-gallery__image" loading="lazy">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p1-3.png" alt="STYLE ZONE Classic Drop-Shoulder T-Shirt — White Detail" class="card-gallery__image" loading="lazy">
+                  </div>
+                </div>
+
+                <button type="button" class="quick-view-btn" data-open-look="sz-1">
+                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
+                  View Look
+                </button>
+              </div>
+
+              <div class="showcase-card__info">
+                <h4 class="showcase-card__title" data-open-look="sz-1">STYLE ZONE Classic Drop-Shoulder T-Shirt — White</h4>
+                <p class="showcase-card__meta">Men's &amp; Youth Essential &bull; In-Store Showcase</p>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="showcase-card" data-id="sz-2" data-category="mens kids graphic">
+              <div class="card-gallery" data-slideshow>
+                <button type="button" class="wishlist-btn" data-wishlist-id="sz-2" aria-label="Bookmark look" aria-pressed="false">
+                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+
+                <div class="card-gallery__arrows">
+                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                </div>
+
+                <div class="card-gallery__slides" data-open-look="sz-2">
+                  <div class="card-gallery__slide is-active">
+                    <img src="assets/p2-1.png" alt="STYLE ZONE Classic Drop-Shoulder T-shirt — White Edition" class="card-gallery__image" loading="eager">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p2-2.png" alt="STYLE ZONE Classic Drop-Shoulder T-shirt — White Flat Lay" class="card-gallery__image" loading="lazy">
+                  </div>
+                </div>
+
+                <button type="button" class="quick-view-btn" data-open-look="sz-2">
+                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
+                  View Look
+                </button>
+              </div>
+
+              <div class="showcase-card__info">
+                <h4 class="showcase-card__title" data-open-look="sz-2">STYLE ZONE Classic Drop-Shoulder T-shirt — White</h4>
+                <p class="showcase-card__meta">Statement Back Print &bull; In-Store Showcase</p>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="showcase-card" data-id="sz-3" data-category="mens graphic">
+              <div class="card-gallery" data-slideshow>
+                <button type="button" class="wishlist-btn" data-wishlist-id="sz-3" aria-label="Bookmark look" aria-pressed="false">
+                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+
+                <div class="card-gallery__arrows">
+                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                </div>
+
+                <div class="card-gallery__slides" data-open-look="sz-3">
+                  <div class="card-gallery__slide is-active">
+                    <img src="assets/p3-1.png" alt="STYLE ZONE Focus Graphic Tee — Black" class="card-gallery__image" loading="eager">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p3-2.png" alt="STYLE ZONE Focus Graphic Tee — Black Detail" class="card-gallery__image" loading="lazy">
+                  </div>
+                </div>
+
+                <button type="button" class="quick-view-btn" data-open-look="sz-3">
+                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
+                  View Look
+                </button>
+              </div>
+
+              <div class="showcase-card__info">
+                <h4 class="showcase-card__title" data-open-look="sz-3">STYLE ZONE Focus Graphic Tee — Black</h4>
+                <p class="showcase-card__meta">Graphic Series &bull; In-Store Showcase</p>
+              </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="showcase-card" data-id="sz-4" data-category="mens kids">
+              <div class="card-gallery" data-slideshow>
+                <button type="button" class="wishlist-btn" data-wishlist-id="sz-4" aria-label="Bookmark look" aria-pressed="false">
+                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+
+                <div class="card-gallery__arrows">
+                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                </div>
+
+                <div class="card-gallery__slides" data-open-look="sz-4">
+                  <div class="card-gallery__slide is-active">
+                    <img src="assets/p4-1.png" alt="STYLE ZONE Signature Oversized Tee – Midnight Black" class="card-gallery__image" loading="eager">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p4-2.png" alt="STYLE ZONE Signature Oversized Tee – Midnight Black Front" class="card-gallery__image" loading="lazy">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p4-3.png" alt="STYLE ZONE Signature Oversized Tee – Midnight Black Back" class="card-gallery__image" loading="lazy">
+                  </div>
+                </div>
+
+                <button type="button" class="quick-view-btn" data-open-look="sz-4">
+                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
+                  View Look
+                </button>
+              </div>
+
+              <div class="showcase-card__info">
+                <h4 class="showcase-card__title" data-open-look="sz-4">STYLE ZONE Signature Oversized Tee – Midnight Black</h4>
+                <p class="showcase-card__meta">Signature Oversized Fit &bull; In-Store Showcase</p>
+              </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="showcase-card" data-id="sz-5" data-category="kids mens">
+              <div class="card-gallery" data-slideshow>
+                <button type="button" class="wishlist-btn" data-wishlist-id="sz-5" aria-label="Bookmark look" aria-pressed="false">
+                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+
+                <div class="card-gallery__arrows">
+                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                </div>
+
+                <div class="card-gallery__slides" data-open-look="sz-5">
+                  <div class="card-gallery__slide is-active">
+                    <img src="assets/p5-1.png" alt="STYLE ZONE Signature Oversized Tee – Pure White" class="card-gallery__image" loading="lazy">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p5-2.png" alt="STYLE ZONE Signature Oversized Tee – Pure White Model" class="card-gallery__image" loading="lazy">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p5-3.png" alt="STYLE ZONE Signature Oversized Tee – Pure White Back" class="card-gallery__image" loading="lazy">
+                  </div>
+                </div>
+
+                <button type="button" class="quick-view-btn" data-open-look="sz-5">
+                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
+                  View Look
+                </button>
+              </div>
+
+              <div class="showcase-card__info">
+                <h4 class="showcase-card__title" data-open-look="sz-5">STYLE ZONE Signature Oversized Tee – Pure White</h4>
+                <p class="showcase-card__meta">Kid's &amp; Men's Fit &bull; In-Store Showcase</p>
+              </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="showcase-card" data-id="sz-6" data-category="mens graphic">
+              <div class="card-gallery" data-slideshow>
+                <button type="button" class="wishlist-btn" data-wishlist-id="sz-6" aria-label="Bookmark look" aria-pressed="false">
+                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+
+                <div class="card-gallery__arrows">
+                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
+                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
+                  </button>
+                </div>
+
+                <div class="card-gallery__slides" data-open-look="sz-6">
+                  <div class="card-gallery__slide is-active">
+                    <img src="assets/p6-1.png" alt="STYLE ZONE Unholy Graphic Tee — Black" class="card-gallery__image" loading="lazy">
+                  </div>
+                  <div class="card-gallery__slide">
+                    <img src="assets/p6-2.png" alt="STYLE ZONE Unholy Graphic Tee — Black Flat Lay" class="card-gallery__image" loading="lazy">
+                  </div>
+                </div>
+
+                <button type="button" class="quick-view-btn" data-open-look="sz-6">
+                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
+                  View Look
+                </button>
+              </div>
+
+              <div class="showcase-card__info">
+                <h4 class="showcase-card__title" data-open-look="sz-6">STYLE ZONE Unholy Graphic Tee — Black</h4>
+                <p class="showcase-card__meta">Limited Graphic Edition &bull; In-Store Showcase</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 5. WHY STYLE ZONE (Exact CREWZT 4-Card 3D Perspective Tilt Grid) -->
+        <section class="why-section scroll-reveal" aria-labelledby="why-heading">
+          <div class="why-container">
+            <h2 id="why-heading" class="why-title">Why STYLE ZONE</h2>
+
+            <div class="why-grid">
+              <div class="why-card" data-tilt-card>
+                <div class="why-card-inner">
+                  <div class="why-image-wrapper">
+                    <img
+                      src="assets/why-1.png"
+                      alt="PREMIUM QUALITY"
+                      class="why-image"
+                      loading="lazy"
+                      width="800"
+                      height="800"
+                    >
+                  </div>
+                  <div class="why-label">PREMIUM QUALITY</div>
+                </div>
+              </div>
+
+              <div class="why-card" data-tilt-card>
+                <div class="why-card-inner">
+                  <div class="why-image-wrapper">
+                    <img
+                      src="assets/why-2.png"
+                      alt="Unique Prints"
+                      class="why-image"
+                      loading="lazy"
+                      width="800"
+                      height="800"
+                    >
+                  </div>
+                  <div class="why-label"><strong>Unique Prints</strong></div>
+                </div>
+              </div>
+
+              <div class="why-card" data-tilt-card>
+                <div class="why-card-inner">
+                  <div class="why-image-wrapper">
+                    <img
+                      src="assets/why-3.jpg"
+                      alt="Kid's & Men's Fit"
+                      class="why-image"
+                      loading="lazy"
+                      width="800"
+                      height="800"
+                    >
+                  </div>
+                  <div class="why-label"><strong>Kid's &amp; Men's Fit</strong></div>
+                </div>
+              </div>
+
+              <div class="why-card" data-tilt-card>
+                <div class="why-card-inner">
+                  <div class="why-image-wrapper">
+                    <img
+                      src="assets/why-4.png"
+                      alt="Trusted Local Destination"
+                      class="why-image"
+                      loading="lazy"
+                      width="800"
+                      height="800"
+                    >
+                  </div>
+                  <div class="why-label">Villianur's Finest</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. BRAND STATEMENT SECTION (Exact CREWZT Black Block) -->
+        <section class="brand-statement scroll-reveal" aria-labelledby="brand-statement-heading">
+          <div class="brand-statement__container">
+            <h2 id="brand-statement-heading" class="brand-statement__heading">
+              Designed Beyond the Ordinary
+            </h2>
+            <div class="brand-statement__text">
+              <p>STYLE ZONE curates original streetwear and everyday essentials for Kid's &amp; Men through distinctive artwork, carefully selected fabrics, seasonal releases, and attention to every detail.</p>
+            </div>
+            <a href="#about-store" class="brand-statement__button">
+              Discover STYLE ZONE
+            </a>
+          </div>
+        </section>
+
+        <!-- 7. STORE RESUME / ABOUT & CONTACT PROFILE (From Google Business Profile + CREWZT About Philosophy) -->
+        <section id="about-store" class="resume-section scroll-reveal">
+          <div class="resume-container">
+            <div class="resume-grid">
+              <!-- Left Column: Brand Story & Philosophy (Adapted from CREWZT About Page) -->
+              <div>
+                <p class="resume-eyebrow">Store Portfolio &amp; Resume</p>
+                <h2 class="resume-heading">We Are STYLE ZONE</h2>
+                <p class="resume-lead">
+                  STYLE ZONE is redefining everyday fashion in Puducherry with premium Kid's &amp; Men's apparel that blends minimal luxury with bold self-expression. We curate pieces that speak without shouting—designed for those who value quality, craftsmanship, and timeless style.
+                </p>
+
+                <div class="resume-stats" aria-label="Store Highlights">
+                  <div>
+                    <div class="resume-stat__value">
+                      4.9 <span class="resume-stat__star" aria-hidden="true">&#9733;</span>
+                    </div>
+                    <div class="resume-stat__label">Google Rating (34+ Reviews)</div>
+                  </div>
+                  <div>
+                    <div class="resume-stat__value">Kid's &amp; Men's</div>
+                    <div class="resume-stat__label">Specialized Apparel</div>
+                  </div>
+                  <div>
+                    <div class="resume-stat__value">Villianur</div>
+                    <div class="resume-stat__label">Puducherry 605110</div>
+                  </div>
+                </div>
+
+                <div class="resume-pillars">
+                  <div class="resume-pillar">
+                    <h3 class="resume-pillar__title">Our Philosophy</h3>
+                    <p class="resume-pillar__desc">
+                      Less noise. More presence. We curate for those who understand that true style doesn't need to scream. Rooted in minimalism, elevated by premium materials.
+                    </p>
+                  </div>
+                  <div class="resume-pillar">
+                    <h3 class="resume-pillar__title">Built Different</h3>
+                    <p class="resume-pillar__desc">
+                      Quality is non-negotiable. From fabric selection to final stitch, every STYLE ZONE garment is selected with precision and care for all-day comfort.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Official Store Directory Card (From share.google link) -->
+              <div id="contact-store" class="store-card">
+                <div class="store-card__header">
+                  <div>
+                    <h3 class="store-card__title">Style Zone Kid's &amp; Men's Clothing</h3>
+                    <p class="store-card__subtitle">Verified Retail Showroom &bull; Puducherry</p>
+                  </div>
+                  <span class="status-badge">
+                    <span class="status-badge__dot" aria-hidden="true"></span>
+                    Open In-Store
+                  </span>
+                </div>
+
+                <ul class="store-details-list">
+                  <li class="store-details-item">
+                    <span class="store-details-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                    </span>
+                    <div>
+                      <p class="store-details-label">Store Address</p>
+                      <p class="store-details-value">
+                        Raak College Road, Plot No. 1 &amp; 2,<br>
+                        G.N. Palayam, Sulthanpet,<br>
+                        Villianur, Puducherry 605110, India
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="store-details-item">
+                    <span class="store-details-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                      </svg>
+                    </span>
+                    <div>
+                      <p class="store-details-label">Direct Contact</p>
+                      <p class="store-details-value">
+                        <a href="tel:+919952753389">+91 99527 53389</a> (099527 53389)
+                      </p>
+                    </div>
+                  </li>
+
+                  <li class="store-details-item">
+                    <span class="store-details-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                        <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                      </svg>
+                    </span>
+                    <div>
+                      <p class="store-details-label">Specialties</p>
+                      <p class="store-details-value">
+                        Men's Streetwear, Oversized Tees, Drop-Shoulder Essentials &amp; Kid's Apparel
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="store-card__actions">
+                  <a href="tel:+919952753389" class="btn-primary">
+                    Call Store
+                  </a>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Style+Zone+Kid%27s+%26+Men%27s+Clothing+Villianur+Puducherry+605110"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-secondary"
+                  >
+                    Get Directions
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ==================== 8. FOOTER (Exact CREWZT Footer Replica) ==================== -->
+      <footer class="site-footer">
+        <div class="footer-top">
+          <div>
+            <h3 class="footer-signup__heading">JOIN THE STYLE ZONE</h3>
+            <p class="footer-signup__subtext">Get early updates on STYLE ZONE’s seasonal arrivals &amp; lookbooks</p>
+          </div>
+
+          <form id="newsletter-form" class="email-signup__form">
+            <div class="email-signup__input-group">
+              <label for="newsletter-email" class="visually-hidden">Email address</label>
+              <input
+                id="newsletter-email"
+                class="email-signup__input"
+                type="email"
+                placeholder="Email address"
+                required
+              >
+              <button type="submit" class="email-signup__button" aria-label="Subscribe for updates">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="footer-links-row">
+          <a href="#showcase">Showcase All</a>
+          <a href="#showcase" data-filter-trigger="graphic">Limited Drops</a>
+          <a href="#contact-store">Contact</a>
+          <a href="#about-store">Store Info</a>
+        </div>
+
+        <div class="footer-utilities">
+          <div>
+            &copy; 2026 <a href="#">STYLE ZONE</a> &bull; Kid's &amp; Men's Clothing, Villianur, Puducherry
+          </div>
+          <div class="footer-utilities__links">
+            <a href="#about-store">Store Resume</a>
+            <a href="https://share.google/zwP89KRNuqgFNrO15" target="_blank" rel="noopener noreferrer">Google Profile</a>
+            <a href="tel:+919952753389">099527 53389</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- ==================== DIALOGS / MODALS ==================== -->
+
+    <!-- A. Lookbook Item Inspection Modal (Light-Dismiss <dialog closedby="any">) -->
+    <dialog id="look-modal" class="sz-dialog" closedby="any" aria-labelledby="look-modal-title">
+      <div class="dialog-header">
+        <h2 id="look-modal-title" class="dialog-title">Lookbook Showcase</h2>
+        <button type="button" class="dialog-close" data-close-dialog="look-modal" aria-label="Close modal">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="dialog-body" id="look-modal-content"></div>
+    </dialog>
+
+    <!-- B. Search Showcase Modal -->
+    <dialog id="search-modal" class="sz-dialog" closedby="any" aria-labelledby="search-modal-title">
+      <div class="dialog-header">
+        <h2 id="search-modal-title" class="dialog-title">Search Showcase</h2>
+        <button type="button" class="dialog-close" data-close-dialog="search-modal" aria-label="Close search">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="dialog-body">
+        <div class="search-input-wrapper">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+            <circle cx="9" cy="9" r="4.75" stroke="currentColor" stroke-width="1.5"/>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m12.5 12.5 3.25 3.25"/>
+          </svg>
+          <input type="search" id="showcase-search-input" placeholder="Search styles (e.g., Oversized, Graphic, White, Black)..." autocomplete="off">
+        </div>
+        <div id="search-results" class="search-results-grid"></div>
+      </div>
+    </dialog>
+
+    <!-- C. Saved Lookbook Drawer (Replaces Cart Drawer with Non-Ecommerce Lookbook Bookmark Drawer) -->
+    <dialog id="saved-drawer" class="sz-dialog sz-dialog--drawer" closedby="any" aria-labelledby="saved-drawer-title">
+      <div class="dialog-header">
+        <h2 id="saved-drawer-title" class="dialog-title">Saved Lookbook</h2>
+        <button type="button" class="dialog-close" data-close-dialog="saved-drawer" aria-label="Close drawer">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="dialog-body" id="saved-drawer-content"></div>
+    </dialog>
+
+    <!-- D. Mobile Menu Drawer -->
+    <dialog id="mobile-menu-drawer" class="sz-dialog sz-dialog--drawer sz-dialog--drawer-left" closedby="any" aria-labelledby="mobile-menu-title">
+      <div class="dialog-header">
+        <h2 id="mobile-menu-title" class="dialog-title">STYLE ZONE</h2>
+        <button type="button" class="dialog-close" data-close-dialog="mobile-menu-drawer" aria-label="Close menu">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="dialog-body">
+        <nav style="display:flex; flex-direction:column; gap:18px; font-size:1.35rem; font-weight:600;">
+          <a href="#showcase" data-close-dialog="mobile-menu-drawer">Showcase All</a>
+          <a href="#about-store" data-close-dialog="mobile-menu-drawer">About</a>
+          <a href="#contact-store" data-close-dialog="mobile-menu-drawer">Contact &amp; Location</a>
+        </nav>
+        <div style="margin-top:36px; padding-top:24px; border-top:1px solid #efefef; font-size:0.8125rem; color:rgba(0,0,0,0.65);">
+          <p style="font-weight:700; color:#000; margin:0 0 6px;">Style Zone Kid's &amp; Men's Clothing</p>
+          <p style="margin:0 0 8px;">Raak College Road, Plot No. 1 &amp; 2, G.N. Palayam, Sulthanpet, Villianur, Puducherry 605110</p>
+          <p style="margin:0;"><a href="tel:+919952753389" style="font-weight:600; color:#000;">099527 53389</a></p>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Toast Notification -->
+    <div id="sz-toast" class="sz-toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
