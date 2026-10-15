@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>STYLE ZONE — Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="admin.css">
+  </head>
+
+  <body>
+    <div id="login-screen" class="login-screen">
+      <form id="login-form" class="login-card">
+        <h1 class="login-card__title">STYLE ZONE Admin</h1>
+        <p class="login-card__subtitle">Log in to manage the showcase catalog.</p>
+        <label for="login-password" class="field-label">Password</label>
+        <input id="login-password" type="password" required autocomplete="current-password" class="field-input">
+        <p id="login-error" class="form-error" hidden></p>
+        <button type="submit" class="btn-primary">Log In</button>
+      </form>
+    </div>
+
+    <div id="dashboard" class="dashboard" hidden>
+      <header class="dashboard-header">
+        <h1 class="dashboard-header__title">STYLE ZONE — Catalog Manager</h1>
+        <div class="dashboard-header__actions">
+          <a href="/" target="_blank" rel="noopener noreferrer" class="btn-secondary">View Site</a>
+          <button type="button" id="logout-btn" class="btn-secondary">Log Out</button>
+        </div>
+      </header>
+
+      <main class="dashboard-main">
+        <section class="item-form-section">
+          <h2 id="form-heading" class="section-heading">Add New Item</h2>
+          <form id="item-form" class="item-form">
+            <input type="hidden" id="item-id" value="">
+
+            <label class="field-label" for="item-title">Title</label>
+            <input id="item-title" name="title" type="text" class="field-input" required placeholder="e.g. STYLE ZONE Oversized Tee — Black">
+
+            <label class="field-label" for="item-badge">Badge</label>
+            <input id="item-badge" name="badge" type="text" class="field-input" placeholder="e.g. Graphic Series">
+
+            <label class="field-label" for="item-category">Categories</label>
+            <input id="item-category" name="category" type="text" class="field-input" placeholder="e.g. Men's, Streetwear, Formal Wear" list="existing-categories">
+            <datalist id="existing-categories"></datalist>
+            <p class="field-hint">Comma-separated. New names you type here become filter options on the site automatically.</p>
+
+            <label class="field-label" for="item-description">Description</label>
+            <textarea id="item-description" name="description" class="field-input" rows="3" placeholder="Short description of the fabric, fit, and look"></textarea>
+
+            <label class="field-label" for="item-fit">Fit</label>
+            <input id="item-fit" name="fit" type="text" class="field-input" placeholder="e.g. Oversized Streetwear Fit">
+
+            <label class="field-label" for="item-fabric">Fabric</label>
+            <input id="item-fabric" name="fabric" type="text" class="field-input" placeholder="e.g. 100% Combed Cotton">
+
+            <label class="field-label" for="item-availability">Availability</label>
+            <input id="item-availability" name="availability" type="text" class="field-input" value="In-Store Showcase — Villianur Showroom">
+
+            <div id="existing-images-block" hidden>
+              <label class="field-label">Current Photos</label>
+              <p class="field-hint">Click a photo to remove it.</p>
+              <div id="existing-images-row" class="image-preview-row"></div>
+            </div>
+
+            <label class="field-label" for="item-images">Add Photos (up to 6 total)</label>
+            <input id="item-images" name="images" type="file" accept="image/*" multiple class="field-input">
+            <p class="field-hint" id="images-hint">New photos are added alongside the current ones.</p>
+            <div id="image-preview-row" class="image-preview-row"></div>
+
+            <p id="form-error" class="form-error" hidden></p>
+
+            <div class="form-actions">
+              <button type="submit" id="form-submit-btn" class="btn-primary">Add Item</button>
+              <button type="button" id="form-cancel-btn" class="btn-secondary" hidden>Cancel Edit</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="item-list-section">
+          <h2 class="section-heading">Current Catalog</h2>
+          <div id="item-list" class="item-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

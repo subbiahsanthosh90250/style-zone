@@ -87,6 +87,18 @@
                 aria-label="Store Profile & Location"
                 title="Store Profile & Location"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 8.5 3.5 3h13L18 8.5M2 8.5a2 2 0 0 0 4 0M6 8.5a2 2 0 0 0 4 0M10 8.5a2 2 0 0 0 4 0M14 8.5a2 2 0 0 0 4 0"/>
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8.5V16a1 1 0 0 0 1 1h3v-4.5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1V17h3a1 1 0 0 0 1-1V8.5"/>
+                </svg>
+              </a>
+
+              <a
+                href="/admin.html"
+                class="header-action-btn"
+                aria-label="Admin Login"
+                title="Admin Login"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="17" viewBox="0 0 15 17" fill="none">
                   <path stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="M10.375 3.813a3.063 3.063 0 1 1-6.125 0 3.063 3.063 0 0 1 6.125 0ZM7.313 9.5c-3.667 0-6.24 2.691-6.563 6.125h13.125C13.552 12.191 10.979 9.5 7.312 9.5Z"/>
                 </svg>
@@ -112,19 +124,18 @@
       <!-- ==================== MAIN CONTENT ==================== -->
       <main id="MainContent" role="main">
         <!-- 3. HERO VIDEO BANNER (Exact CREWZT Hero Replica) -->
-        <section class="hero-section" aria-label="Featured Banner">
-          <div class="hero__media-wrapper">
+        <section class="hero-section" id="hero-section" aria-label="Featured Banner">
+          <div class="hero__media-wrapper" id="hero-media-wrapper">
             <video
               playsinline
-              autoplay
               loop
               muted
-              preload="metadata"
+              preload="none"
               poster="assets/hero-poster.jpg"
               class="hero__video"
-            >
-              <source src="assets/hero.mp4" type="video/mp4">
-            </video>
+              id="hero-video"
+              data-src="assets/hero.mp4"
+            ></video>
             <div class="hero__overlay"></div>
           </div>
 
@@ -139,245 +150,12 @@
         <section id="showcase" class="showcase-section page-container">
           <div class="showcase-header">
             <h3 class="showcase-header__title">Showcase</h3>
-            <div class="showcase-filters" role="tablist" aria-label="Filter collection by category">
+            <div class="showcase-filters" role="tablist" aria-label="Filter collection by category" id="showcase-filters">
               <button type="button" class="filter-pill is-active" data-filter="all">All Looks</button>
-              <button type="button" class="filter-pill" data-filter="mens">Men's Collection</button>
-              <button type="button" class="filter-pill" data-filter="kids">Kid's &amp; Youth Fit</button>
-              <button type="button" class="filter-pill" data-filter="graphic">Graphic Series</button>
             </div>
           </div>
 
           <div class="resource-list--grid" id="showcase-grid">
-            <!-- Card 1 -->
-            <article class="showcase-card" data-id="sz-1" data-category="mens kids">
-              <div class="card-gallery" data-slideshow>
-                <button type="button" class="wishlist-btn" data-wishlist-id="sz-1" aria-label="Bookmark look" aria-pressed="false">
-                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-
-                <div class="card-gallery__arrows">
-                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                </div>
-
-                <div class="card-gallery__slides" data-open-look="sz-1">
-                  <div class="card-gallery__slide is-active">
-                    <img src="assets/p1-1.png" alt="STYLE ZONE Classic Drop-Shoulder T-Shirt — White" class="card-gallery__image" loading="eager">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p1-2.png" alt="STYLE ZONE Classic Drop-Shoulder T-Shirt — White Back View" class="card-gallery__image" loading="lazy">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p1-3.png" alt="STYLE ZONE Classic Drop-Shoulder T-Shirt — White Detail" class="card-gallery__image" loading="lazy">
-                  </div>
-                </div>
-
-                <button type="button" class="quick-view-btn" data-open-look="sz-1">
-                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
-                  View Look
-                </button>
-              </div>
-
-              <div class="showcase-card__info">
-                <h4 class="showcase-card__title" data-open-look="sz-1">STYLE ZONE Classic Drop-Shoulder T-Shirt — White</h4>
-                <p class="showcase-card__meta">Men's &amp; Youth Essential &bull; In-Store Showcase</p>
-              </div>
-            </article>
-
-            <!-- Card 2 -->
-            <article class="showcase-card" data-id="sz-2" data-category="mens kids graphic">
-              <div class="card-gallery" data-slideshow>
-                <button type="button" class="wishlist-btn" data-wishlist-id="sz-2" aria-label="Bookmark look" aria-pressed="false">
-                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-
-                <div class="card-gallery__arrows">
-                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                </div>
-
-                <div class="card-gallery__slides" data-open-look="sz-2">
-                  <div class="card-gallery__slide is-active">
-                    <img src="assets/p2-1.png" alt="STYLE ZONE Classic Drop-Shoulder T-shirt — White Edition" class="card-gallery__image" loading="eager">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p2-2.png" alt="STYLE ZONE Classic Drop-Shoulder T-shirt — White Flat Lay" class="card-gallery__image" loading="lazy">
-                  </div>
-                </div>
-
-                <button type="button" class="quick-view-btn" data-open-look="sz-2">
-                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
-                  View Look
-                </button>
-              </div>
-
-              <div class="showcase-card__info">
-                <h4 class="showcase-card__title" data-open-look="sz-2">STYLE ZONE Classic Drop-Shoulder T-shirt — White</h4>
-                <p class="showcase-card__meta">Statement Back Print &bull; In-Store Showcase</p>
-              </div>
-            </article>
-
-            <!-- Card 3 -->
-            <article class="showcase-card" data-id="sz-3" data-category="mens graphic">
-              <div class="card-gallery" data-slideshow>
-                <button type="button" class="wishlist-btn" data-wishlist-id="sz-3" aria-label="Bookmark look" aria-pressed="false">
-                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-
-                <div class="card-gallery__arrows">
-                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                </div>
-
-                <div class="card-gallery__slides" data-open-look="sz-3">
-                  <div class="card-gallery__slide is-active">
-                    <img src="assets/p3-1.png" alt="STYLE ZONE Focus Graphic Tee — Black" class="card-gallery__image" loading="eager">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p3-2.png" alt="STYLE ZONE Focus Graphic Tee — Black Detail" class="card-gallery__image" loading="lazy">
-                  </div>
-                </div>
-
-                <button type="button" class="quick-view-btn" data-open-look="sz-3">
-                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
-                  View Look
-                </button>
-              </div>
-
-              <div class="showcase-card__info">
-                <h4 class="showcase-card__title" data-open-look="sz-3">STYLE ZONE Focus Graphic Tee — Black</h4>
-                <p class="showcase-card__meta">Graphic Series &bull; In-Store Showcase</p>
-              </div>
-            </article>
-
-            <!-- Card 4 -->
-            <article class="showcase-card" data-id="sz-4" data-category="mens kids">
-              <div class="card-gallery" data-slideshow>
-                <button type="button" class="wishlist-btn" data-wishlist-id="sz-4" aria-label="Bookmark look" aria-pressed="false">
-                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-
-                <div class="card-gallery__arrows">
-                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                </div>
-
-                <div class="card-gallery__slides" data-open-look="sz-4">
-                  <div class="card-gallery__slide is-active">
-                    <img src="assets/p4-1.png" alt="STYLE ZONE Signature Oversized Tee – Midnight Black" class="card-gallery__image" loading="eager">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p4-2.png" alt="STYLE ZONE Signature Oversized Tee – Midnight Black Front" class="card-gallery__image" loading="lazy">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p4-3.png" alt="STYLE ZONE Signature Oversized Tee – Midnight Black Back" class="card-gallery__image" loading="lazy">
-                  </div>
-                </div>
-
-                <button type="button" class="quick-view-btn" data-open-look="sz-4">
-                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
-                  View Look
-                </button>
-              </div>
-
-              <div class="showcase-card__info">
-                <h4 class="showcase-card__title" data-open-look="sz-4">STYLE ZONE Signature Oversized Tee – Midnight Black</h4>
-                <p class="showcase-card__meta">Signature Oversized Fit &bull; In-Store Showcase</p>
-              </div>
-            </article>
-
-            <!-- Card 5 -->
-            <article class="showcase-card" data-id="sz-5" data-category="kids mens">
-              <div class="card-gallery" data-slideshow>
-                <button type="button" class="wishlist-btn" data-wishlist-id="sz-5" aria-label="Bookmark look" aria-pressed="false">
-                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-
-                <div class="card-gallery__arrows">
-                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                </div>
-
-                <div class="card-gallery__slides" data-open-look="sz-5">
-                  <div class="card-gallery__slide is-active">
-                    <img src="assets/p5-1.png" alt="STYLE ZONE Signature Oversized Tee – Pure White" class="card-gallery__image" loading="lazy">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p5-2.png" alt="STYLE ZONE Signature Oversized Tee – Pure White Model" class="card-gallery__image" loading="lazy">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p5-3.png" alt="STYLE ZONE Signature Oversized Tee – Pure White Back" class="card-gallery__image" loading="lazy">
-                  </div>
-                </div>
-
-                <button type="button" class="quick-view-btn" data-open-look="sz-5">
-                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
-                  View Look
-                </button>
-              </div>
-
-              <div class="showcase-card__info">
-                <h4 class="showcase-card__title" data-open-look="sz-5">STYLE ZONE Signature Oversized Tee – Pure White</h4>
-                <p class="showcase-card__meta">Kid's &amp; Men's Fit &bull; In-Store Showcase</p>
-              </div>
-            </article>
-
-            <!-- Card 6 -->
-            <article class="showcase-card" data-id="sz-6" data-category="mens graphic">
-              <div class="card-gallery" data-slideshow>
-                <button type="button" class="wishlist-btn" data-wishlist-id="sz-6" aria-label="Bookmark look" aria-pressed="false">
-                  <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-
-                <div class="card-gallery__arrows">
-                  <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                  <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">
-                    <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>
-                  </button>
-                </div>
-
-                <div class="card-gallery__slides" data-open-look="sz-6">
-                  <div class="card-gallery__slide is-active">
-                    <img src="assets/p6-1.png" alt="STYLE ZONE Unholy Graphic Tee — Black" class="card-gallery__image" loading="lazy">
-                  </div>
-                  <div class="card-gallery__slide">
-                    <img src="assets/p6-2.png" alt="STYLE ZONE Unholy Graphic Tee — Black Flat Lay" class="card-gallery__image" loading="lazy">
-                  </div>
-                </div>
-
-                <button type="button" class="quick-view-btn" data-open-look="sz-6">
-                  <svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>
-                  View Look
-                </button>
-              </div>
-
-              <div class="showcase-card__info">
-                <h4 class="showcase-card__title" data-open-look="sz-6">STYLE ZONE Unholy Graphic Tee — Black</h4>
-                <p class="showcase-card__meta">Limited Graphic Edition &bull; In-Store Showcase</p>
-              </div>
-            </article>
           </div>
         </section>
 
@@ -391,7 +169,7 @@
                 <div class="why-card-inner">
                   <div class="why-image-wrapper">
                     <img
-                      src="assets/why-1.png"
+                      src="assets/why-1.webp"
                       alt="PREMIUM QUALITY"
                       class="why-image"
                       loading="lazy"
@@ -407,7 +185,7 @@
                 <div class="why-card-inner">
                   <div class="why-image-wrapper">
                     <img
-                      src="assets/why-2.png"
+                      src="assets/why-2.webp"
                       alt="Unique Prints"
                       class="why-image"
                       loading="lazy"
@@ -423,7 +201,7 @@
                 <div class="why-card-inner">
                   <div class="why-image-wrapper">
                     <img
-                      src="assets/why-3.jpg"
+                      src="assets/why-3.webp"
                       alt="Kid's & Men's Fit"
                       class="why-image"
                       loading="lazy"
@@ -439,7 +217,7 @@
                 <div class="why-card-inner">
                   <div class="why-image-wrapper">
                     <img
-                      src="assets/why-4.png"
+                      src="assets/why-4.webp"
                       alt="Trusted Local Destination"
                       class="why-image"
                       loading="lazy"

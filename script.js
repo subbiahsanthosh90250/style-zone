@@ -5,81 +5,8 @@
 (function () {
   'use strict';
 
-  // Showcase Catalog Data (Zero cost/pricing mentions anywhere)
-  const SHOWCASE_ITEMS = [
-    {
-      id: 'sz-1',
-      title: 'STYLE ZONE Classic Drop-Shoulder T-Shirt — White',
-      badge: "Men's & Youth Essential",
-      category: 'mens kids',
-      description:
-        'Crafted from breathable heavy-gauge combed cotton with a relaxed drop-shoulder silhouette. Designed for effortless everyday wear with clean minimalist lines.',
-      fit: 'Relaxed Drop-Shoulder Fit (Men & Youth Sizes)',
-      fabric: '100% Premium Combed Cotton',
-      availability: 'In-Store Showcase — Villianur Showroom',
-      images: ['assets/p1-1.png', 'assets/p1-2.png', 'assets/p1-3.png'],
-    },
-    {
-      id: 'sz-2',
-      title: 'STYLE ZONE Classic Drop-Shoulder T-shirt — White',
-      badge: 'Statement Back Print',
-      category: 'mens kids graphic',
-      description:
-        'A signature white drop-shoulder tee featuring high-definition back artwork and a structured ribbed crew neck that holds its shape wash after wash.',
-      fit: 'Oversized Streetwear Fit',
-      fabric: 'Heavyweight Bio-Washed Cotton',
-      availability: 'In-Store Showcase — Villianur Showroom',
-      images: ['assets/p2-1.png', 'assets/p2-2.png'],
-    },
-    {
-      id: 'sz-3',
-      title: 'STYLE ZONE Focus Graphic Tee — Black',
-      badge: 'Graphic Series',
-      category: 'mens graphic',
-      description:
-        'Bold typographic and visual focus artwork printed on deep jet-black fabric. Built for sharp contrast and standout street presence.',
-      fit: 'Boxy Streetwear Cut',
-      fabric: 'Premium French Terry Cotton',
-      availability: 'In-Store Showcase — Villianur Showroom',
-      images: ['assets/p3-1.png', 'assets/p3-2.png'],
-    },
-    {
-      id: 'sz-4',
-      title: 'STYLE ZONE Signature Oversized Tee – Midnight Black',
-      badge: 'Signature Oversized Fit',
-      category: 'mens kids',
-      description:
-        'Our staple midnight black oversized tee featuring subtle tonal detailing and ultra-soft fabric drape for all-day comfort.',
-      fit: 'Unisex / Men & Youth Oversized',
-      fabric: '100% Ring-Spun Super Combed Cotton',
-      availability: 'In-Store Showcase — Villianur Showroom',
-      images: ['assets/p4-1.png', 'assets/p4-2.png', 'assets/p4-3.png'],
-    },
-    {
-      id: 'sz-5',
-      title: 'STYLE ZONE Signature Oversized Tee – Pure White',
-      badge: "Kid's & Men's Fit",
-      category: 'kids mens',
-      description:
-        'Crisp optical white oversized tee tailored for both youth and adult silhouettes. Minimalist front profile paired with signature back graphics.',
-      fit: "Kid's, Youth & Men's Sizes Available",
-      fabric: 'Breathable Luxury Jersey Cotton',
-      availability: 'In-Store Showcase — Villianur Showroom',
-      images: ['assets/p5-1.png', 'assets/p5-2.png', 'assets/p5-3.png'],
-    },
-    {
-      id: 'sz-6',
-      title: 'STYLE ZONE Unholy Graphic Tee — Black',
-      badge: 'Limited Graphic Edition',
-      category: 'mens graphic',
-      description:
-        'Distinctive custom illustration merged with vintage-washed black cotton. A centerpiece garment from the Style Zone seasonal lookbook.',
-      fit: 'Drop-Shoulder Oversized Fit',
-      fabric: 'Heavyweight Luxury Cotton',
-      availability: 'In-Store Showcase — Villianur Showroom',
-      images: ['assets/p6-1.png', 'assets/p6-2.png'],
-    },
-  ];
+  // Showcase Catalog Data — loaded from the backend (owner-managed via /admin.html)
+  let SHOWCASE_ITEMS = [];
 
   const STORAGE_KEY = 'stylezone-saved-looks';
 
@@ -110,6 +37,55 @@
     { passive: true }
   );
 
+  // 1b. Hero Video — stays still (poster) until the cursor nears the banner, then plays
+  (function initHeroProximityVideo() {
+    const heroSection = document.getElementById('hero-section');
+    const video = document.getElementById('hero-video');
+    if (!heroSection || !video) return;
+
+    // Touch/coarse-pointer devices have no cursor to approach with — keep the
+    // static poster only and never fetch the video, saving mobile bandwidth.
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+
+    const PROXIMITY_PX = 160;
+    let videoSrcLoaded = false;
+    let isPlaying = false;
+
+    function loadVideoSrc() {
+      if (videoSrcLoaded) return;
+      videoSrcLoaded = true;
+      video.src = video.dataset.src;
+    }
+
+    function playVideo() {
+      if (isPlaying) return;
+      isPlaying = true;
+      loadVideoSrc();
+      video.play().catch(() => {});
+    }
+
+    function pauseVideo() {
+      if (!isPlaying) return;
+      isPlaying = false;
+      video.pause();
+    }
+
+    function handlePointerMove(e) {
+      const rect = heroSection.getBoundingClientRect();
+      const nearX = e.clientX >= rect.left - PROXIMITY_PX && e.clientX <= rect.right + PROXIMITY_PX;
+      const nearY = e.clientY >= rect.top - PROXIMITY_PX && e.clientY <= rect.bottom + PROXIMITY_PX;
+
+      if (nearX && nearY) {
+        playVideo();
+      } else {
+        pauseVideo();
+      }
+    }
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true });
+    window.addEventListener('pointerleave', pauseVideo, { passive: true });
+  })();
+
   // 2. Mandatory Fallback for <dialog closedby="any"> on browsers without native closedBy support
   document.querySelectorAll('dialog.sz-dialog').forEach((dialog) => {
     if (!('closedBy' in HTMLDialogElement.prototype)) {
@@ -138,54 +114,57 @@
   });
 
   // 3. Multi-Image Card Slideshows (Hover preview + Arrow buttons)
-  document.querySelectorAll('[data-slideshow]').forEach((gallery) => {
-    const slides = Array.from(gallery.querySelectorAll('.card-gallery__slide'));
-    if (slides.length <= 1) return;
-    let currentIndex = 0;
+  // Wired up fresh after every render, since cards are now built from fetched data.
+  function initSlideshows() {
+    document.querySelectorAll('[data-slideshow]').forEach((gallery) => {
+      const slides = Array.from(gallery.querySelectorAll('.card-gallery__slide'));
+      if (slides.length <= 1) return;
+      let currentIndex = 0;
 
-    function showSlide(index) {
-      currentIndex = (index + slides.length) % slides.length;
-      slides.forEach((s, idx) => {
-        s.classList.toggle('is-active', idx === currentIndex);
-      });
-    }
-
-    const prevBtn = gallery.querySelector('[data-slide-prev]');
-    const nextBtn = gallery.querySelector('[data-slide-next]');
-
-    prevBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      showSlide(currentIndex - 1);
-    });
-
-    nextBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      showSlide(currentIndex + 1);
-    });
-
-    // Subtle second-image preview on pointer enter (matches CREWZT card-gallery behavior)
-    gallery.addEventListener('pointerenter', () => {
-      if (currentIndex === 0 && slides.length > 1) {
-        showSlide(1);
+      function showSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        slides.forEach((s, idx) => {
+          s.classList.toggle('is-active', idx === currentIndex);
+        });
       }
-    });
 
-    gallery.addEventListener('pointerleave', () => {
-      showSlide(0);
+      const prevBtn = gallery.querySelector('[data-slide-prev]');
+      const nextBtn = gallery.querySelector('[data-slide-next]');
+
+      prevBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showSlide(currentIndex - 1);
+      });
+
+      nextBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showSlide(currentIndex + 1);
+      });
+
+      // Subtle second-image preview on pointer enter (matches CREWZT card-gallery behavior)
+      gallery.addEventListener('pointerenter', () => {
+        if (currentIndex === 0 && slides.length > 1) {
+          showSlide(1);
+        }
+      });
+
+      gallery.addEventListener('pointerleave', () => {
+        showSlide(0);
+      });
     });
-  });
+  }
 
   // 4. Category Filtering (with View Transitions API support when available)
-  const filterButtons = document.querySelectorAll('.filter-pill');
-  const cards = document.querySelectorAll('.showcase-card');
-
+  // Filter pills are generated dynamically from whatever categories exist in the
+  // catalog (see initFilterPills below), so admin-added categories like "Streetwear"
+  // or "Formal Wear" just appear as filters automatically.
   function applyFilter(category) {
-    filterButtons.forEach((btn) => {
+    document.querySelectorAll('.filter-pill').forEach((btn) => {
       btn.classList.toggle('is-active', btn.dataset.filter === category);
     });
 
     const updateDOM = () => {
-      cards.forEach((card) => {
+      document.querySelectorAll('.showcase-card').forEach((card) => {
         const cats = (card.dataset.category || '').split(' ');
         const match = category === 'all' || cats.includes(category);
         card.hidden = !match;
@@ -199,11 +178,13 @@
     }
   }
 
-  filterButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      applyFilter(btn.dataset.filter);
+  function initFilterPills() {
+    document.querySelectorAll('.filter-pill').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        applyFilter(btn.dataset.filter);
+      });
     });
-  });
+  }
 
   document.querySelectorAll('[data-filter-trigger]').forEach((link) => {
     link.addEventListener('click', () => {
@@ -528,6 +509,108 @@
     }
   });
 
+  // 12. Showcase Grid Rendering — builds cards from fetched catalog data
+  function slugifyCategory(label) {
+    return label
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  }
+
+  const HEART_ICON_SVG =
+    '<svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>';
+  const ARROW_ICON_SVG =
+    '<svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/></svg>';
+  const QUICK_VIEW_ICON_SVG =
+    '<svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>';
+
+  function renderShowcaseCard(item) {
+    const slidesHtml = item.images
+      .map(
+        (src, idx) => `
+          <div class="card-gallery__slide ${idx === 0 ? 'is-active' : ''}">
+            <img src="${src}" alt="${item.title}" class="card-gallery__image" loading="${idx === 0 ? 'eager' : 'lazy'}">
+          </div>
+        `
+      )
+      .join('');
+
+    return `
+      <article class="showcase-card" data-id="${item.id}" data-category="${item.category.map(slugifyCategory).join(' ')}">
+        <div class="card-gallery" data-slideshow>
+          <button type="button" class="wishlist-btn" data-wishlist-id="${item.id}" aria-label="Bookmark look" aria-pressed="false">
+            ${HEART_ICON_SVG}
+          </button>
+
+          <div class="card-gallery__arrows">
+            <button type="button" class="slideshow-arrow slideshow-arrow--prev" data-slide-prev aria-label="Previous image">${ARROW_ICON_SVG}</button>
+            <button type="button" class="slideshow-arrow slideshow-arrow--next" data-slide-next aria-label="Next image">${ARROW_ICON_SVG}</button>
+          </div>
+
+          <div class="card-gallery__slides" data-open-look="${item.id}">
+            ${slidesHtml}
+          </div>
+
+          <button type="button" class="quick-view-btn" data-open-look="${item.id}">
+            ${QUICK_VIEW_ICON_SVG}
+            View Look
+          </button>
+        </div>
+
+        <div class="showcase-card__info">
+          <h4 class="showcase-card__title" data-open-look="${item.id}">${item.title}</h4>
+          <p class="showcase-card__meta">${item.badge} &bull; In-Store Showcase</p>
+        </div>
+      </article>
+    `;
+  }
+
+  function renderShowcaseGrid() {
+    const grid = document.getElementById('showcase-grid');
+    if (!grid) return;
+    grid.innerHTML = SHOWCASE_ITEMS.map(renderShowcaseCard).join('');
+  }
+
+  function renderFilterPills() {
+    const container = document.getElementById('showcase-filters');
+    if (!container) return;
+
+    const seen = new Map(); // slug -> display label (first-seen casing wins)
+    SHOWCASE_ITEMS.forEach((item) => {
+      item.category.forEach((label) => {
+        const slug = slugifyCategory(label);
+        if (slug && !seen.has(slug)) seen.set(slug, label);
+      });
+    });
+
+    const pillsHtml = Array.from(seen.entries())
+      .map(([slug, label]) => `<button type="button" class="filter-pill" data-filter="${slug}">${label}</button>`)
+      .join('');
+
+    container.innerHTML = `<button type="button" class="filter-pill is-active" data-filter="all">All Looks</button>${pillsHtml}`;
+  }
+
+  async function loadShowcase() {
+    const grid = document.getElementById('showcase-grid');
+    try {
+      const res = await fetch('/api/items');
+      if (!res.ok) throw new Error('Failed to load catalog');
+      SHOWCASE_ITEMS = await res.json();
+    } catch (err) {
+      if (grid) {
+        grid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:rgba(0,0,0,0.6); padding:48px 0;">Unable to load the showcase right now. Please refresh the page.</p>`;
+      }
+      return;
+    }
+
+    renderShowcaseGrid();
+    renderFilterPills();
+    initSlideshows();
+    initFilterPills();
+    syncWishlistUI();
+  }
+
   // Initialize state
-  syncWishlistUI();
+  loadShowcase();
 })();
