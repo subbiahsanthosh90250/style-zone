@@ -2,16 +2,14 @@ services:
   - type: web
     name: style-zone
     runtime: node
-    plan: starter
+    plan: free
     buildCommand: npm install
     startCommand: npm start
-    disk:
-      name: style-zone-data
-      mountPath: /data
-      sizeGB: 1
+    # NOTE: free plan has no persistent disk — the database and any admin-uploaded
+    # photos reset to the seeded catalog on every restart/redeploy. Add a `disk:`
+    # block back (see git history) and switch `plan` to `starter` once ready to
+    # pay for storage that survives restarts.
     envVars:
-      - key: DATA_DIR
-        value: /data
       - key: SESSION_SECRET
         generateValue: true
       - key: ADMIN_PASSWORD_HASH
