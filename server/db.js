@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { DatabaseSync } = require('node:sqlite');
+const Database = require('better-sqlite3');
 
 // DATA_DIR lets a single persistent disk (e.g. on Render) cover both the
 // database and uploaded images. Locally it defaults to a folder in the repo.
@@ -9,8 +9,8 @@ const dataDir = process.env.DATA_DIR
   : path.join(__dirname, 'data');
 fs.mkdirSync(dataDir, { recursive: true });
 
-const db = new DatabaseSync(path.join(dataDir, 'style-zone.db'));
-db.exec('PRAGMA journal_mode = WAL');
+const db = new Database(path.join(dataDir, 'style-zone.db'));
+db.pragma('journal_mode = WAL');
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS items (
