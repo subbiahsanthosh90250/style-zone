@@ -511,13 +511,6 @@ button {
   color: rgba(211, 47, 47, 0.14);
 }
 
-.hero__side-fill-item--left-3 {
-  top: 60%;
-  left: 5%;
-  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-  transform: rotate(-3deg);
-}
-
 .hero__side-fill-item--right {
   top: 30%;
   right: 5%;
@@ -546,6 +539,13 @@ button {
   font-size: clamp(2.5rem, 5vw, 4.25rem);
   transform: rotate(7deg);
   color: rgba(211, 47, 47, 0.14);
+}
+
+.hero__side-fill-item--right-5 {
+  top: 83%;
+  right: 7%;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  transform: rotate(-4deg);
 }
 
 @media screen and (min-width: 1100px) {
