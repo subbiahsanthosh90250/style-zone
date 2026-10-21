@@ -383,6 +383,7 @@ button {
 .hero__eyebrow,
 .hero__corner-label,
 .hero__wordmark,
+.hero__tagline,
 .hero__badge,
 .hero__cta-row {
   animation: heroFadeUp 0.8s var(--ease-out-cubic) both;
@@ -395,6 +396,7 @@ button {
 .hero__eyebrow { animation-delay: 0.05s; }
 .hero__corner-label { animation-delay: 0.1s; }
 .hero__wordmark { animation-delay: 0.15s; }
+.hero__tagline { animation-delay: 0.25s; }
 .hero__photo-wrap { animation-delay: 0.35s; }
 .hero__badge { animation-delay: 0.55s; }
 .hero__cta-row { animation-delay: 0.65s; }
@@ -403,6 +405,7 @@ button {
   .hero__eyebrow,
   .hero__corner-label,
   .hero__wordmark,
+  .hero__tagline,
   .hero__photo-wrap,
   .hero__badge,
   .hero__cta-row {
@@ -421,6 +424,25 @@ button {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-foreground);
+}
+
+.hero__tagline {
+  position: absolute;
+  top: 22%;
+  left: 24px;
+  z-index: 3;
+  max-width: 220px;
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-foreground);
+}
+
+@media screen and (max-width: 1099px) {
+  .hero__tagline {
+    display: none;
+  }
 }
 
 .hero__corner-label {
