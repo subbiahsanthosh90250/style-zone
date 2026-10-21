@@ -37,30 +37,6 @@
     { passive: true }
   );
 
-  // 1b. Hero Photo 3D Tilt — the hero image tilts toward the cursor instead of sitting flat
-  (function initHeroPhotoTilt() {
-    const wrap = document.getElementById('hero-photo-wrap');
-    const photo = wrap?.querySelector('.hero__photo');
-    if (!wrap || !photo) return;
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    const TILT_MAX_DEG = 14;
-
-    wrap.addEventListener('mousemove', (e) => {
-      const rect = wrap.getBoundingClientRect();
-      const relX = (e.clientX - rect.left) / rect.width;
-      const relY = (e.clientY - rect.top) / rect.height;
-      const rotateY = (relX - 0.5) * TILT_MAX_DEG * 2;
-      const rotateX = (0.5 - relY) * TILT_MAX_DEG * 2;
-      photo.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
-    });
-
-    wrap.addEventListener('mouseleave', () => {
-      photo.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-    });
-  })();
-
   // 2. Mandatory Fallback for <dialog closedby="any"> on browsers without native closedBy support
   document.querySelectorAll('dialog.sz-dialog').forEach((dialog) => {
     if (!('closedBy' in HTMLDialogElement.prototype)) {
