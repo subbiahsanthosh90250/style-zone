@@ -476,7 +476,7 @@
   const QUICK_VIEW_ICON_SVG =
     '<svg viewBox="0 0 20 20" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.5 10s3-5.5 7.5-5.5S17.5 10 17.5 10s-3 5.5-7.5 5.5S2.5 10 2.5 10Z"/><circle cx="10" cy="10" r="2.25" stroke="currentColor" stroke-width="1.5"/></svg>';
 
-  function renderShowcaseCard(item) {
+  function renderShowcaseCard(item, index) {
     const slidesHtml = item.images
       .map(
         (src, idx) => `
@@ -487,8 +487,10 @@
       )
       .join('');
 
+    const delay = (index % 4) * 0.08;
+
     return `
-      <article class="showcase-card" data-id="${item.id}" data-category="${item.category.map(slugifyCategory).join(' ')}">
+      <article class="showcase-card scroll-reveal" style="transition-delay: ${delay}s" data-id="${item.id}" data-category="${item.category.map(slugifyCategory).join(' ')}">
         <div class="card-gallery" data-slideshow>
           <button type="button" class="wishlist-btn" data-wishlist-id="${item.id}" aria-label="Bookmark look" aria-pressed="false">
             ${HEART_ICON_SVG}
@@ -521,6 +523,7 @@
     const grid = document.getElementById('showcase-grid');
     if (!grid) return;
     grid.innerHTML = SHOWCASE_ITEMS.map(renderShowcaseCard).join('');
+    grid.querySelectorAll('.scroll-reveal').forEach((el) => revealObserver.observe(el));
   }
 
   function renderFilterPills() {
