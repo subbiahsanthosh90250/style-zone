@@ -1,7 +1,7 @@
 :root {
-  --black: #0a0a0a;
-  --border: #e4e4e4;
-  --muted: rgba(0, 0, 0, 0.6);
+  --black: #111111;
+  --border: #f0e2b3;
+  --muted: rgba(17, 17, 17, 0.6);
 }
 
 * {
@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: 'Inter', system-ui, sans-serif;
   color: var(--black);
-  background: #fafafa;
+  background: #ffffff;
 }
 
 .btn-primary,
@@ -34,7 +34,7 @@ body {
 
 .btn-primary {
   background: var(--black);
-  color: #fff;
+  color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -42,14 +42,14 @@ body {
 }
 
 .btn-secondary {
-  background: #fff;
+  background: #ffffff;
   color: var(--black);
   border-color: var(--border);
   text-decoration: none;
 }
 
 .btn-secondary:hover {
-  background: #f2f2f2;
+  background: #fff8e1;
 }
 
 /* Login screen */
@@ -64,7 +64,7 @@ body {
 .login-card {
   width: 100%;
   max-width: 360px;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 32px;
@@ -92,7 +92,7 @@ body {
   justify-content: space-between;
   padding: 20px 28px;
   border-bottom: 1px solid var(--border);
-  background: #fff;
+  background: #ffffff;
 }
 
 .dashboard-header__title {
@@ -130,7 +130,7 @@ body {
 
 .item-form-section,
 .item-list-section {
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 22px;
@@ -219,7 +219,7 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(192, 57, 43, 0.85);
-  color: #fff;
+  color: #ffffff;
   font-size: 1.25rem;
   opacity: 0;
 }

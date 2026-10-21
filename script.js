@@ -37,55 +37,6 @@
     { passive: true }
   );
 
-  // 1b. Hero Video — stays still (poster) until the cursor nears the banner, then plays
-  (function initHeroProximityVideo() {
-    const heroSection = document.getElementById('hero-section');
-    const video = document.getElementById('hero-video');
-    if (!heroSection || !video) return;
-
-    // Touch/coarse-pointer devices have no cursor to approach with — keep the
-    // static poster only and never fetch the video, saving mobile bandwidth.
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-
-    const PROXIMITY_PX = 160;
-    let videoSrcLoaded = false;
-    let isPlaying = false;
-
-    function loadVideoSrc() {
-      if (videoSrcLoaded) return;
-      videoSrcLoaded = true;
-      video.src = video.dataset.src;
-    }
-
-    function playVideo() {
-      if (isPlaying) return;
-      isPlaying = true;
-      loadVideoSrc();
-      video.play().catch(() => {});
-    }
-
-    function pauseVideo() {
-      if (!isPlaying) return;
-      isPlaying = false;
-      video.pause();
-    }
-
-    function handlePointerMove(e) {
-      const rect = heroSection.getBoundingClientRect();
-      const nearX = e.clientX >= rect.left - PROXIMITY_PX && e.clientX <= rect.right + PROXIMITY_PX;
-      const nearY = e.clientY >= rect.top - PROXIMITY_PX && e.clientY <= rect.bottom + PROXIMITY_PX;
-
-      if (nearX && nearY) {
-        playVideo();
-      } else {
-        pauseVideo();
-      }
-    }
-
-    window.addEventListener('pointermove', handlePointerMove, { passive: true });
-    window.addEventListener('pointerleave', pauseVideo, { passive: true });
-  })();
-
   // 2. Mandatory Fallback for <dialog closedby="any"> on browsers without native closedBy support
   document.querySelectorAll('dialog.sz-dialog').forEach((dialog) => {
     if (!('closedBy' in HTMLDialogElement.prototype)) {

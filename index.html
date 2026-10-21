@@ -11,10 +11,10 @@
     <meta property="og:description" content="Premium Kid's & Men's Streetwear and Essentials in Villianur, Puducherry.">
     <title>STYLE ZONE — Kid's &amp; Men's Clothing</title>
 
-    <!-- Google Fonts: Inter (400, 500, 600, 700, 900) matching CREWZT -->
+    <!-- Google Fonts: Inter (bold weights for the yellow/red/black retail look) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -123,26 +123,99 @@
 
       <!-- ==================== MAIN CONTENT ==================== -->
       <main id="MainContent" role="main">
-        <!-- 3. HERO VIDEO BANNER (Exact CREWZT Hero Replica) -->
+        <!-- 3. HERO BANNER — oversized wordmark with a real catalog photo overlapping it -->
         <section class="hero-section" id="hero-section" aria-label="Featured Banner">
-          <div class="hero__media-wrapper" id="hero-media-wrapper">
-            <video
-              playsinline
-              loop
-              muted
-              preload="none"
-              poster="assets/hero-poster.jpg"
-              class="hero__video"
-              id="hero-video"
-              data-src="assets/hero.mp4"
-            ></video>
-            <div class="hero__overlay"></div>
-          </div>
+          <span class="hero__eyebrow">Streetwear That<br>Fits Every Body</span>
+          <span class="hero__corner-label">New Arrivals</span>
+
+          <h2 class="hero__wordmark" aria-hidden="true">STYLE<br>ZONE</h2>
+          <img src="assets/p4-1.webp" alt="STYLE ZONE Signature Oversized Tee" class="hero__photo" width="700" height="933">
 
           <div class="hero__content-container">
             <span class="hero__badge">Kid's &amp; Men's Clothing &bull; 4.9 &#9733; Rated Store</span>
-            <h2 class="hero__title">Premium Streetwear</h2>
-            <a href="#showcase" class="hero__button">Explore Collection</a>
+            <div class="hero__cta-row">
+              <a href="#showcase" class="hero__button">Shop Now</a>
+              <a href="#showcase" class="hero__link">Explore New In &rarr;</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3b. CATEGORY TILES -->
+        <section class="category-tiles" aria-label="Shop by category">
+          <div class="category-tiles__grid">
+            <a href="#showcase" class="category-tile" data-filter-trigger="men-s">
+              <img src="assets/p3-1.webp" alt="Men's clothing" class="category-tile__image" loading="lazy">
+              <div class="category-tile__info">
+                <h3 class="category-tile__title">Men's</h3>
+                <p class="category-tile__text">Bold fits, up to 5XL.</p>
+                <span class="category-tile__link">Shop Men's &rarr;</span>
+              </div>
+            </a>
+
+            <a href="#showcase" class="category-tile" data-filter-trigger="kid-s">
+              <img src="assets/p1-1.webp" alt="Kid's clothing" class="category-tile__image" loading="lazy">
+              <div class="category-tile__info">
+                <h3 class="category-tile__title">Kid's</h3>
+                <p class="category-tile__text">Comfort meets everyday play.</p>
+                <span class="category-tile__link">Shop Kid's &rarr;</span>
+              </div>
+            </a>
+
+            <a href="#showcase" class="category-tile" data-filter-trigger="graphic">
+              <img src="assets/p6-1.webp" alt="Graphic tees" class="category-tile__image" loading="lazy">
+              <div class="category-tile__info">
+                <h3 class="category-tile__title">Graphic</h3>
+                <p class="category-tile__text">Statement prints that stand out.</p>
+                <span class="category-tile__link">Shop Graphic &rarr;</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 3c. FEATURE SPLIT (brand statement, photo + text) -->
+        <section class="feature-split scroll-reveal" aria-labelledby="feature-split-heading">
+          <div class="feature-split__text">
+            <span class="feature-split__eyebrow">New Season</span>
+            <h2 id="feature-split-heading" class="feature-split__heading">Designed Beyond the Ordinary</h2>
+            <p class="feature-split__desc">STYLE ZONE curates original streetwear and everyday essentials for Kid's &amp; Men through distinctive artwork, carefully selected fabrics, and sizes that actually fit — relaxed fit, boot cut, up to 5XL and size 44.</p>
+            <a href="#about-store" class="feature-split__button">Discover STYLE ZONE</a>
+          </div>
+          <div class="feature-split__media">
+            <img src="assets/p4-2.webp" alt="STYLE ZONE Signature Oversized Tee detail" loading="lazy">
+          </div>
+        </section>
+
+        <!-- 3d. TRUST STRIP -->
+        <section class="trust-strip" aria-label="Why shop with STYLE ZONE">
+          <div class="trust-strip__grid">
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <div>
+                <p class="trust-item__title">Quick Try-On &amp; Billing</p>
+                <p class="trust-item__text">In and out, no waiting around</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 7l1.5 12a2 2 0 0 0 2 1.8h9a2 2 0 0 0 2-1.8L20 7M9 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <p class="trust-item__title">Easy Size Exchange</p>
+                <p class="trust-item__text">Didn't fit? We'll sort it</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <div>
+                <p class="trust-item__title">Quality Assured</p>
+                <p class="trust-item__text">Every piece checked by us</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 2 2.9 6.6 7.1.6-5.4 4.7 1.7 6.9L12 17.3 5.7 20.8l1.7-6.9L2 9.2l7.1-.6L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <div>
+                <p class="trust-item__title">4.9&#9733; Rated Store</p>
+                <p class="trust-item__text">34+ happy customer reviews</p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -159,91 +232,89 @@
           </div>
         </section>
 
-        <!-- 5. WHY STYLE ZONE (Exact CREWZT 4-Card 3D Perspective Tilt Grid) -->
+        <!-- 5. OUR SPECIALTIES (real shop specialties, icon cards) -->
         <section class="why-section scroll-reveal" aria-labelledby="why-heading">
           <div class="why-container">
-            <h2 id="why-heading" class="why-title">Why STYLE ZONE</h2>
+            <h2 id="why-heading" class="why-title">Our Specialties</h2>
 
-            <div class="why-grid">
+            <div class="why-grid why-grid--five">
               <div class="why-card" data-tilt-card>
                 <div class="why-card-inner">
-                  <div class="why-image-wrapper">
-                    <img
-                      src="assets/why-1.webp"
-                      alt="PREMIUM QUALITY"
-                      class="why-image"
-                      loading="lazy"
-                      width="800"
-                      height="800"
-                    >
+                  <div class="why-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 4 4 7l2 3 2-1.5V20h8V8.5L18 10l2-3-4-3-2 2h-4L8 4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
                   </div>
-                  <div class="why-label">PREMIUM QUALITY</div>
+                  <div class="why-label">Relaxed Fit</div>
+                  <p class="why-desc">Easy, comfortable everyday wear</p>
                 </div>
               </div>
 
               <div class="why-card" data-tilt-card>
                 <div class="why-card-inner">
-                  <div class="why-image-wrapper">
-                    <img
-                      src="assets/why-2.webp"
-                      alt="Unique Prints"
-                      class="why-image"
-                      loading="lazy"
-                      width="800"
-                      height="800"
-                    >
+                  <div class="why-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 3h10l1 7-2 11h-3l-1-9-1 9H8L6 10l1-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
                   </div>
-                  <div class="why-label"><strong>Unique Prints</strong></div>
+                  <div class="why-label">Boot Cut</div>
+                  <p class="why-desc">Classic flare from the knee down</p>
                 </div>
               </div>
 
               <div class="why-card" data-tilt-card>
                 <div class="why-card-inner">
-                  <div class="why-image-wrapper">
-                    <img
-                      src="assets/why-3.webp"
-                      alt="Kid's & Men's Fit"
-                      class="why-image"
-                      loading="lazy"
-                      width="800"
-                      height="800"
-                    >
+                  <div class="why-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 11 11 3h8a2 2 0 0 1 2 2v8l-8 8-10-10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="15.5" cy="8.5" r="1.25" fill="currentColor"/></svg>
                   </div>
-                  <div class="why-label"><strong>Kid's &amp; Men's Fit</strong></div>
+                  <div class="why-label">Plus Sizes</div>
+                  <p class="why-desc">Shirts up to 3XL, 4XL &amp; 5XL</p>
                 </div>
               </div>
 
               <div class="why-card" data-tilt-card>
                 <div class="why-card-inner">
-                  <div class="why-image-wrapper">
-                    <img
-                      src="assets/why-4.webp"
-                      alt="Trusted Local Destination"
-                      class="why-image"
-                      loading="lazy"
-                      width="800"
-                      height="800"
-                    >
+                  <div class="why-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18M3 12v3M7 12v2M11 12v3M15 12v2M19 12v3M3 12V9M19 12V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                   </div>
-                  <div class="why-label">Villianur's Finest</div>
+                  <div class="why-label">Pants to Size 44</div>
+                  <p class="why-desc">A perfect fit for every size</p>
+                </div>
+              </div>
+
+              <div class="why-card" data-tilt-card>
+                <div class="why-card-inner">
+                  <div class="why-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c-1.5 2-1.5 3.5 0 5 1.5-1.5 1.5-3 0-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 10c0-1.5 2.5-2 6-2s6 .5 6 2-2 9-6 9-6-7.5-6-9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  </div>
+                  <div class="why-label">Newborn Wear</div>
+                  <p class="why-desc">Soft dresses for little ones</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- 6. BRAND STATEMENT SECTION (Exact CREWZT Black Block) -->
-        <section class="brand-statement scroll-reveal" aria-labelledby="brand-statement-heading">
-          <div class="brand-statement__container">
-            <h2 id="brand-statement-heading" class="brand-statement__heading">
-              Designed Beyond the Ordinary
-            </h2>
-            <div class="brand-statement__text">
-              <p>STYLE ZONE curates original streetwear and everyday essentials for Kid's &amp; Men through distinctive artwork, carefully selected fabrics, seasonal releases, and attention to every detail.</p>
+        <!-- 5b. OFFERS & REWARDS -->
+        <section class="offers-section scroll-reveal" aria-labelledby="offers-heading">
+          <div class="offers-container">
+            <h2 id="offers-heading" class="offers-title">Offers &amp; Rewards</h2>
+
+            <div class="offers-grid">
+              <div class="offer-card">
+                <span class="offer-card__tag">Festival Special</span>
+                <h3 class="offer-card__title">Diwali &amp; Pongal Gifts</h3>
+                <p class="offer-card__text">Shop &#8377;4,000 or more during festival season and get a special gift from STYLE ZONE.</p>
+              </div>
+
+              <div class="offer-card">
+                <span class="offer-card__tag">Loyalty</span>
+                <h3 class="offer-card__title">STYLE ZONE Points</h3>
+                <p class="offer-card__text">Earn points with every purchase and redeem them towards your next visit.</p>
+              </div>
+
+              <div class="offer-card">
+                <span class="offer-card__tag">Birthday Treat</span>
+                <h3 class="offer-card__title">Free Watch for Kids</h3>
+                <p class="offer-card__text">Buy your child's birthday outfit with us and get a free watch, on the house.</p>
+              </div>
             </div>
-            <a href="#about-store" class="brand-statement__button">
-              Discover STYLE ZONE
-            </a>
           </div>
         </section>
 
@@ -408,7 +479,7 @@
 
         <div class="footer-utilities">
           <div>
-            &copy; 2026 <a href="#">STYLE ZONE</a> &bull; Kid's &amp; Men's Clothing, Villianur, Puducherry
+            &copy; 2026 STYLE ZONE &bull; Kid's &amp; Men's Clothing, Villianur, Puducherry
           </div>
           <div class="footer-utilities__links">
             <a href="#about-store">Store Resume</a>
