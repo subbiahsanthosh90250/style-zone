@@ -508,7 +508,7 @@ button {
    ========================================================================== */
 .showcase-section {
   padding-block: 80px;
-  background-color: var(--color-surface-muted);
+  background-color: var(--color-yellow);
 }
 
 .showcase-header {
@@ -1132,7 +1132,7 @@ button {
    ========================================================================== */
 .trust-strip {
   width: 100%;
-  background-color: var(--color-surface-muted);
+  background-color: var(--color-yellow);
   border-bottom: 1px solid var(--color-border);
   padding: 32px 20px;
 }
@@ -1182,7 +1182,7 @@ button {
    ========================================================================== */
 .resume-section {
   padding: 120px 20px;
-  background-color: var(--color-surface-muted);
+  background-color: var(--color-yellow);
   border-bottom: 1px solid var(--color-border);
 }
 
