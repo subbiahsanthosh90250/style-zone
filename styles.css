@@ -505,10 +505,10 @@ button {
 .hero__photo-wrap {
   position: absolute;
   top: 8%;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  height: 86%;
   width: clamp(220px, 26vw, 420px);
   perspective: 1200px;
 }
